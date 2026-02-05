@@ -76,7 +76,7 @@ html {
 }
 
 body {
-    font-family: 'Gabarito', sans-serif;
+    font-family: 'Inter Tight', sans-serif;
     background: var(--bg);
     color: var(--text);
     line-height: 1.6;
@@ -472,23 +472,50 @@ body {
 
 .skills-grid {
     display: grid;
-    gap: 26px;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 20px;
 }
 
-.meter {
-    height: 10px;
-    background: var(--meter-bg);
-    border-radius: 10px;
-    overflow: hidden;
-    margin-top: 8px;
-    transition: background 0.3s;
+.skill-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 24px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    cursor: default;
+    text-align: center;
 }
 
-.meter div {
-    height: 100%;
-    width: 0;
-    background: var(--accent);
+.skill-card i {
+    font-size: 3rem;
+    color: var(--text);
+    transition: 0.3s;
 }
+
+.skill-card span {
+    font-size: 1rem;
+    font-weight: 600;
+    opacity: 0.9;
+}
+
+/* Hover Effect */
+.skill-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent);
+    box-shadow: 0 10px 20px -10px rgba(242, 87, 43, 0.3);
+}
+
+.skill-card:hover i {
+    color: var(--accent);
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 8px var(--accent));
+}
+
+
 
 /* PROJECTS */
 
