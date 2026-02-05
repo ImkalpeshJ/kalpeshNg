@@ -31,7 +31,14 @@
     --cta-bg: linear-gradient(to bottom, #111, #171717);
     --footer-bg: #000;
     --border-color: #333;
+    --border-color: #333;
     --meter-bg: #2a2a2a;
+
+    /* Wave Colors for Dark Mode */
+    --wave-1: rgba(23, 23, 23, 0.7);
+    /* Matching darker bg partially */
+    --wave-2: rgba(23, 23, 23, 0.5);
+    --wave-3: rgba(23, 23, 23, 0.3);
 }
 
 /* Dark-specific overrides for footer text in light mode (no longer needed or check if inverted?) */
@@ -514,6 +521,86 @@ body {
     transform: scale(1.1);
     filter: drop-shadow(0 0 8px var(--accent));
 }
+
+/* WAVES ANIMATION */
+.waves-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 15vh;
+    /* Adjust height as needed */
+    z-index: 0;
+    pointer-events: none;
+    /* Let clicks pass through */
+    line-height: 0;
+    /* Fix vertical gaps */
+}
+
+.waves {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 100px;
+    max-height: 150px;
+}
+
+/* Parallax Animation */
+.parallax>use {
+    animation: move-forever 25s cubic-bezier(.55, .5, .45, .5) infinite;
+}
+
+.parallax>use:nth-child(1) {
+    animation-delay: -2s;
+    animation-duration: 7s;
+    fill: var(--wave-1, rgba(255, 255, 255, 0.7));
+}
+
+.parallax>use:nth-child(2) {
+    animation-delay: -3s;
+    animation-duration: 10s;
+    fill: var(--wave-2, rgba(255, 255, 255, 0.5));
+}
+
+.parallax>use:nth-child(3) {
+    animation-delay: -4s;
+    animation-duration: 13s;
+    fill: var(--wave-3, rgba(255, 255, 255, 0.3));
+}
+
+.parallax>use:nth-child(4) {
+    animation-delay: -5s;
+    animation-duration: 20s;
+    fill: var(--bg);
+    /* Match the background of the NEXT section (usually body bg) */
+}
+
+@keyframes move-forever {
+    0% {
+        transform: translate3d(-90px, 0, 0);
+    }
+
+    100% {
+        transform: translate3d(85px, 0, 0);
+    }
+}
+
+/* Ensure content sits above waves */
+#skills .container,
+#experience .container {
+    position: relative;
+    z-index: 1;
+}
+
+#skills,
+#experience {
+    position: relative;
+    overflow: hidden;
+    /* Clip waves */
+    padding-bottom: 150px;
+    /* Space for waves */
+}
+
 
 
 
