@@ -1,0 +1,367 @@
+<div id="progressBar"></div>
+
+<header class="navbar">
+  <div class="nav-logo">KJ</div>
+
+  <div class="nav-right">
+    <nav class="nav-links" [class.open]="isMobileMenuOpen">
+      <a href="#hero" (click)="toggleMenu()">Home</a>
+      <a href="#about" (click)="toggleMenu()">About</a>
+      <a href="#skills" (click)="toggleMenu()">Skills</a>
+      <a href="#projects" (click)="toggleMenu()">Impact</a>
+      <a href="#experience" (click)="toggleMenu()">Experience</a>
+      <a href="#contact" (click)="toggleMenu()">Contact</a>
+    </nav>
+
+    <div class="theme-toggle-wrapper">
+      <label class="switch">
+        <input class="switch__input" type="checkbox" role="switch" id="themeToggleCheckbox" [checked]="isDarkMode"
+          (change)="toggleTheme($event)">
+        <svg class="switch__icon switch__icon--light" viewBox="0 0 12 12" width="12px" height="12px" aria-hidden="true">
+          <g fill="none" stroke="#fff" stroke-width="1" stroke-linecap="round">
+            <circle cx="6" cy="6" r="2" />
+            <g stroke-dasharray="1.5 1.5">
+              <polyline points="6 10,6 11.5" transform="rotate(0,6,6)" />
+              <polyline points="6 10,6 11.5" transform="rotate(45,6,6)" />
+              <polyline points="6 10,6 11.5" transform="rotate(90,6,6)" />
+              <polyline points="6 10,6 11.5" transform="rotate(135,6,6)" />
+              <polyline points="6 10,6 11.5" transform="rotate(180,6,6)" />
+              <polyline points="6 10,6 11.5" transform="rotate(225,6,6)" />
+              <polyline points="6 10,6 11.5" transform="rotate(270,6,6)" />
+              <polyline points="6 10,6 11.5" transform="rotate(315,6,6)" />
+            </g>
+          </g>
+        </svg>
+        <svg class="switch__icon switch__icon--dark" viewBox="0 0 12 12" width="12px" height="12px" aria-hidden="true">
+          <g fill="none" stroke="#fff" stroke-width="1" stroke-linejoin="round" transform="rotate(-45,6,6)">
+            <path
+              d="m9,10c-2.209,0-4-1.791-4-4s1.791-4,4-4c.304,0,.598.041.883.105-.995-.992-2.367-1.605-3.883-1.605C2.962.5.5,2.962.5,6s2.462,5.5,5.5,5.5c1.516,0,2.888-.613,3.883-1.605-.285.064-.578.105-.883.105Z" />
+          </g>
+        </svg>
+        <span class="switch__sr">Dark Mode</span>
+      </label>
+    </div>
+
+    <div class="hamburger" (click)="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section id="hero" class="hero">
+  <div class="hero-bg hero-bg-mob"></div>
+
+  <div class="container hero-content">
+    <h1 class="hero-title">
+      Kalpesh Jagtap
+    </h1>
+    <h2 class="hero-sub">
+      Full Stack Developer — Java • Spring Boot • Angular
+    </h2>
+    <p class="hero-desc">
+      Building scalable enterprise applications, high-performance APIs,
+      and modular frontend systems with production-grade architecture.
+    </p>
+
+    <div class="hero-cta">
+      <a href="#projects" class="btn-primary">View Work</a>
+      <a href="#contact" class="btn-outline">Contact Me</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section">
+  <div class="container">
+    <h2 class="section-title">About</h2>
+
+    <div class="about-grid">
+      <div class="card">
+        <p>
+          I’m a software developer who enjoys building end-to-end systems that are fast, stable, and
+          practical in real production environments. I specialize in <strong>Java</strong> and
+          <strong>Spring Boot</strong> backend development along with <strong>Angular</strong> frontends,
+          and I’m comfortable owning features from database design to UI delivery.
+        </p>
+        <p style="margin-top: 1rem;">
+          My approach is simple: understand the problem deeply, design clean architecture, write
+          maintainable code, and optimize where it matters. I pay close attention to <strong>API
+            design</strong>, <strong>performance tuning</strong>, and <strong>frontend
+            usability</strong> so applications don’t just run — they scale and stay maintainable.
+        </p>
+      </div>
+
+      <div class="card highlight">
+        <p style="margin-bottom: 1.2rem;">
+          I’ve worked on <strong>microservices</strong>, <strong>REST platforms</strong>, enterprise UI
+          modules, and system optimizations, with a strong focus on production reliability and measurable
+          improvement.
+        </p>
+        <ul>
+          <li>Designed & optimized 25+ REST APIs</li>
+          <li>Reduced backend latency by 30%</li>
+          <li>Improved frontend load time by 35%</li>
+          <li>Delivered 10+ full stack applications</li>
+          <li>Maintained 80%+ unit test coverage</li>
+        </ul>
+        <p style="margin-top: 1.2rem; font-weight: 500; color: var(--accent);">
+          Always open to meaningful product and platform engineering work.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="section dark">
+  <div class="container">
+    <h2 class="section-title">Core Skills</h2>
+
+    <div class="skills-grid">
+
+      <div class="skill">
+        <span>Java / Spring Boot</span>
+        <div class="meter">
+          <div data-width="95%"></div>
+        </div>
+      </div>
+
+      <div class="skill">
+        <span>REST API Design</span>
+        <div class="meter">
+          <div data-width="92%"></div>
+        </div>
+      </div>
+
+      <div class="skill">
+        <span>Angular / TypeScript</span>
+        <div class="meter">
+          <div data-width="90%"></div>
+        </div>
+      </div>
+
+      <div class="skill">
+        <span>Database Design</span>
+        <div class="meter">
+          <div data-width="85%"></div>
+        </div>
+      </div>
+
+      <div class="skill">
+        <span>Microservices</span>
+        <div class="meter">
+          <div data-width="84%"></div>
+        </div>
+      </div>
+
+      <div class="skill">
+        <span>Testing & CI</span>
+        <div class="meter">
+          <div data-width="82%"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROJECT / IMPACT -->
+<section id="projects" class="section">
+  <div class="container">
+    <h2 class="section-title">Selected Impact</h2>
+
+    <div class="card-grid">
+
+      <div class="project-card">
+        <h3>Charging Management System</h3>
+        <ul>
+          <li>Developed frontend UI using <strong>Angular</strong> micro-frontends.</li>
+          <li>Implemented scalable, enterprise-standard UI components.</li>
+          <li>Translated <strong>Figma</strong> designs into functional UI.</li>
+          <li>Managed CI/CD via <strong>Azure DevOps</strong> & sprint workflows.</li>
+        </ul>
+      </div>
+
+      <div class="project-card">
+        <h3>Job Listing Portal</h3>
+        <ul>
+          <li>Built frontend using <strong>EJS</strong> & <strong>JavaScript</strong>.</li>
+          <li>Integrated backend APIs for real-time job rendering.</li>
+          <li>Delivered a fully responsive & accessible UI.</li>
+        </ul>
+      </div>
+
+      <div class="project-card">
+        <h3>Talent & Mentorship System</h3>
+        <ul>
+          <li>Developed dashboards using <strong>EJS</strong> & <strong>Node.js</strong>.</li>
+          <li>Designed role-based views for mentors & job seekers.</li>
+          <li>Ensured smooth API interactions & dynamic updates.</li>
+        </ul>
+      </div>
+
+      <div class="project-card">
+        <h3>Industrial EHS System</h3>
+        <ul>
+          <li>Built backend APIs using <strong>Node.js</strong>, <strong>Express</strong> &
+            <strong>Sequelize</strong>.
+          </li>
+          <li>Implemented <strong>JWT</strong> auth & role-based access control.</li>
+          <li>Designed modular, scalable backend architecture.</li>
+          <li>Integrated <strong>MSSQL</strong> with centralized error handling.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="section dark">
+  <div class="container">
+    <h2 class="section-title">Experience</h2>
+
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content card">
+          <h3>Senior Software Developer — TALKD</h3>
+          <span>May 2025 – Present</span>
+          <p>
+            Leading full stack development using Angular, TypeScript,
+            Java, and Spring Boot. Spearheaded scalable system design,
+            API optimization, and clean architecture reviews.
+          </p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content card">
+          <h3>Senior Executive UI Developer — TALKD</h3>
+          <span>Aug 2023 – May 2025</span>
+          <p>
+            Built responsive enterprise UI systems and integrated them with
+            Spring Boot backend services and MySQL databases.
+          </p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content card">
+          <h3>Freelance Full Stack Developer</h3>
+          <span>Jun 2022 – Jul 2023</span>
+          <p>
+            Delivered custom web applications and REST systems for multiple
+            clients with Angular and Java stack.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TECH STACK -->
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">Tech Stack</h2>
+
+    <div class="tech-marquee-wrapper">
+
+      <!-- Row 1: Left Scroll -->
+      <div class="tech-marquee" id="marquee-left">
+        <div class="tech-track">
+          <!-- Content -->
+          <div class="tech"><i class="devicon-java-plain"></i><span>Java</span></div>
+          <div class="tech"><i class="devicon-spring-original"></i><span>Spring Boot</span></div>
+          <div class="tech"><i class="devicon-angularjs-plain"></i><span>Angular</span></div>
+          <div class="tech"><i class="devicon-javascript-plain"></i><span>JavaScript</span></div>
+          <div class="tech"><i class="devicon-html5-plain"></i><span>HTML</span></div>
+          <div class="tech"><i class="devicon-css3-plain"></i><span>CSS</span></div>
+          <div class="tech"><i class="devicon-typescript-plain"></i><span>TypeScript</span></div>
+          <div class="tech"><i class="devicon-hibernate-plain"></i><span>Hibernate</span></div>
+          <div class="tech"><i class="devicon-mysql-plain"></i><span>MySQL</span></div>
+          <div class="tech"><i class="devicon-mongodb-plain"></i><span>MongoDB</span></div>
+
+          <!-- DUPLICATE FOR LOOP -->
+          <div class="tech"><i class="devicon-java-plain"></i><span>Java</span></div>
+          <div class="tech"><i class="devicon-spring-original"></i><span>Spring Boot</span></div>
+          <div class="tech"><i class="devicon-angularjs-plain"></i><span>Angular</span></div>
+          <div class="tech"><i class="devicon-javascript-plain"></i><span>JavaScript</span></div>
+          <div class="tech"><i class="devicon-html5-plain"></i><span>HTML</span></div>
+          <div class="tech"><i class="devicon-css3-plain"></i><span>CSS</span></div>
+          <div class="tech"><i class="devicon-typescript-plain"></i><span>TypeScript</span></div>
+          <div class="tech"><i class="devicon-hibernate-plain"></i><span>Hibernate</span></div>
+          <div class="tech"><i class="devicon-mysql-plain"></i><span>MySQL</span></div>
+          <div class="tech"><i class="devicon-mongodb-plain"></i><span>MongoDB</span></div>
+        </div>
+      </div>
+
+      <!-- Row 2: Right Scroll -->
+      <div class="tech-marquee" id="marquee-right">
+        <div class="tech-track">
+          <!-- Content -->
+          <div class="tech"><i class="devicon-nodejs-plain"></i><span>Node.js</span></div>
+          <div class="tech"><i class="devicon-express-original"></i><span>Express.js</span></div>
+          <div class="tech"><i class="devicon-postgresql-plain"></i><span>PostgreSQL</span></div>
+          <div class="tech"><i class="devicon-microsoftsqlserver-plain"></i><span>MSSQL</span></div>
+          <div class="tech"><i class="devicon-azure-plain"></i><span>Azure</span></div>
+          <div class="tech"><i class="devicon-docker-plain"></i><span>Docker</span></div>
+          <div class="tech"><i class="devicon-amazonwebservices-plain-wordmark"></i><span>AWS</span></div>
+          <div class="tech"><i class="devicon-jenkins-line"></i><span>Jenkins</span></div>
+          <div class="tech"><i class="devicon-git-plain"></i><span>Git</span></div>
+          <div class="tech"><i class="devicon-postman-plain"></i><span>Postman</span></div>
+
+          <!-- DUPLICATE FOR LOOP -->
+          <div class="tech"><i class="devicon-nodejs-plain"></i><span>Node.js</span></div>
+          <div class="tech"><i class="devicon-express-original"></i><span>Express.js</span></div>
+          <div class="tech"><i class="devicon-postgresql-plain"></i><span>PostgreSQL</span></div>
+          <div class="tech"><i class="devicon-microsoftsqlserver-plain"></i><span>MSSQL</span></div>
+          <div class="tech"><i class="devicon-azure-plain"></i><span>Azure</span></div>
+          <div class="tech"><i class="devicon-docker-plain"></i><span>Docker</span></div>
+          <div class="tech"><i class="devicon-amazonwebservices-plain-wordmark"></i><span>AWS</span></div>
+          <div class="tech"><i class="devicon-jenkins-line"></i><span>Jenkins</span></div>
+          <div class="tech"><i class="devicon-git-plain"></i><span>Git</span></div>
+          <div class="tech"><i class="devicon-postman-plain"></i><span>Postman</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section cta">
+  <div class="container">
+    <h2>Let’s Build Something Strong</h2>
+    <p>Pune, India • Available for Full Stack & Java roles</p>
+
+    <div class="cta-actions">
+      <a class="btn-primary" href="mailto:kalpesh121296@gmail.com">
+        <i class="devicon-google-plain"></i> kalpesh121296@gmail.com
+      </a>
+      <a class="btn-outline" href="tel:+918605965667">
+        +91 8605965667
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-logo">KJ</div>
+      <div class="footer-text">
+        <p>&copy; 2026 Kalpesh Jagtap. All rights reserved.</p>
+        <p class="footer-sub">Built with Passion, Java, and Coffee.</p>
+      </div>
+      <div class="footer-socials">
+        <!-- Add social links if available, using placeholders for now if not provided -->
+      </div>
+    </div>
+  </div>
+</footer>
