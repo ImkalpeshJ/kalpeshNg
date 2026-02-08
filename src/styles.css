@@ -509,17 +509,232 @@ body {
     opacity: 0.9;
 }
 
-/* Hover Effect */
-.skill-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--accent);
-    box-shadow: 0 10px 20px -10px rgba(242, 87, 43, 0.3);
-}
+/* Skill Card Hover */
 
 .skill-card:hover i {
-    color: var(--accent);
     transform: scale(1.1);
-    filter: drop-shadow(0 0 8px var(--accent));
+    color: transparent !important;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    /* Important for displaying bg */
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.4));
+}
+
+.skill-card:hover .devicon-java-plain {
+    background-image: url('https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg');
+}
+
+.skill-card:hover .devicon-spring-original {
+    background-image: url('https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original.svg');
+}
+
+.skill-card:hover .devicon-angularjs-plain {
+    background-image: url('https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angularjs/angularjs-original.svg');
+}
+
+.skill-card:hover .devicon-typescript-plain {
+    background-image: url('https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg');
+}
+
+.skill-card:hover .devicon-nodejs-plain {
+    background-image: url('https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg');
+}
+
+.skill-card:hover .devicon-postgresql-plain {
+    background-image: url('https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg');
+}
+
+.skill-card:hover .devicon-docker-plain {
+    background-image: url('https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg');
+}
+
+.skill-card:hover .devicon-git-plain {
+    background-image: url('https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg');
+}
+
+/* Custom Microservices Icon - Smooth Transition Fix */
+.custom-microservices-icon {
+    display: inline-block;
+    width: 3rem;
+    height: 3rem;
+    position: relative;
+    /* For pseudo-elements */
+
+    /* Base style matching devicon fonts */
+    vertical-align: middle;
+}
+
+/* Monotone Layer (Default) */
+.custom-microservices-icon::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background-color: var(--text);
+    /* Uses theme color */
+
+    /* Same SVG mask */
+    -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>');
+    mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>');
+
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+
+    transition: opacity 0.3s ease;
+    /* Fade transition */
+    opacity: 1;
+}
+
+/* Multicolor Layer (Hover) */
+.custom-microservices-icon::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    /* Multicolor SVG */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3" stroke="%234285F4"></circle><circle cx="6" cy="12" r="3" stroke="%2334A853"></circle><circle cx="18" cy="19" r="3" stroke="%23EA4335"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49" stroke="%23FBBC05"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49" stroke="%23FBBC05"></line></svg>');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    transition: opacity 0.3s ease;
+    opacity: 0;
+    /* Hidden by default */
+}
+
+/* Hover States */
+.skill-card:hover .custom-microservices-icon::before {
+    opacity: 0;
+    /* Fade out monotone */
+}
+
+.skill-card:hover .custom-microservices-icon::after {
+    opacity: 1;
+    /* Fade in color */
+}
+
+/* Scale effect applies to container */
+.skill-card:hover .custom-microservices-icon {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.4));
+}
+
+/* Fallback for others */
+.skill-card:hover i:not([class*="devicon-"]) {
+    color: var(--accent);
+}
+
+/* ===========================
+   TECH STACK MARQUEE HOVER
+   =========================== */
+
+/* Base Hover for Marquee Items */
+.tech:hover i {
+    transform: scale(1.2);
+    color: transparent !important;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.4));
+    transition: transform 0.3s ease;
+}
+
+/* Specific Icons */
+.tech:hover .devicon-java-plain {
+    background-image: url('https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg');
+}
+
+.tech:hover .devicon-spring-original {
+    background-image: url('https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original.svg');
+}
+
+.tech:hover .devicon-angularjs-plain {
+    background-image: url('https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angularjs/angularjs-original.svg');
+}
+
+.tech:hover .devicon-javascript-plain {
+    background-image: url('https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg');
+}
+
+.tech:hover .devicon-html5-plain {
+    background-image: url('https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg');
+}
+
+.tech:hover .devicon-css3-plain {
+    background-image: url('https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg');
+}
+
+.tech:hover .devicon-typescript-plain {
+    background-image: url('https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg');
+}
+
+.tech:hover .devicon-hibernate-plain {
+    background-image: url('https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/hibernate/hibernate-original.svg');
+}
+
+.tech:hover .devicon-mysql-plain {
+    background-image: url('https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg');
+}
+
+.tech:hover .devicon-mongodb-plain {
+    background-image: url('https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg');
+}
+
+.tech:hover .devicon-nodejs-plain {
+    background-image: url('https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg');
+}
+
+.tech:hover .devicon-express-original {
+    background-image: url('https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg');
+}
+
+.tech:hover .devicon-postgresql-plain {
+    background-image: url('https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg');
+}
+
+.tech:hover .devicon-microsoftsqlserver-plain {
+    background-image: url('https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/microsoftsqlserver/microsoftsqlserver-plain.svg');
+}
+
+.tech:hover .devicon-azure-plain {
+    background-image: url('https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg');
+}
+
+.tech:hover .devicon-docker-plain {
+    background-image: url('https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg');
+}
+
+.tech:hover .devicon-amazonwebservices-plain-wordmark {
+    background-image: url('https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg');
+}
+
+.tech:hover .devicon-jenkins-line {
+    background-image: url('https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jenkins/jenkins-original.svg');
+}
+
+.tech:hover .devicon-git-plain {
+    background-image: url('https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg');
+}
+
+.tech:hover .devicon-postman-plain {
+    background-image: url('https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original.svg');
 }
 
 /* WAVES ANIMATION */
@@ -656,20 +871,109 @@ body {
 /* TIMELINE */
 
 .timeline {
-    border-left: 2px solid var(--border-color);
-    padding-left: 30px;
-    display: grid;
-    gap: 40px;
-    transition: border-color 0.3s;
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* The vertical line */
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    /* Adjust based on dot position */
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--border-color);
+    border-radius: 2px;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 50px;
+    padding-left: 60px;
+    /* Space for the line and dot */
 }
 
 .timeline-dot {
-    width: 14px;
-    height: 14px;
-    background: var(--accent);
+    position: absolute;
+    left: 11px;
+    /* Center on the line (20px line left - (20px dot / 2) + 1px center adjust) -> Approx 11px if dot is 20px */
+    top: 0;
+    width: 20px;
+    height: 20px;
+    background: var(--bg);
+    border: 3px solid var(--accent);
     border-radius: 50%;
-    margin-left: -38px;
-    box-shadow: 0 0 14px var(--accent);
+    z-index: 2;
+    box-shadow: 0 0 0 4px var(--bg);
+    /* Spacing effect from line */
+    transition: transform 0.3s ease;
+}
+
+/* Pulsating effect for the dot */
+.timeline-item:hover .timeline-dot {
+    transform: scale(1.3);
+    box-shadow: 0 0 15px var(--accent);
+    background: var(--accent);
+}
+
+.timeline-content {
+    position: relative;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 24px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.timeline-item:hover .timeline-content {
+    transform: translateX(10px);
+    border-color: var(--accent);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.2);
+}
+
+/* Connector line from dot to card */
+.timeline-content::before {
+    content: '';
+    position: absolute;
+    left: -10px;
+    top: 20px;
+    /* Match dot top relative to item if needed, or align center */
+    width: 10px;
+    height: 2px;
+    background: var(--accent);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.timeline-item:hover .timeline-content::before {
+    opacity: 1;
+}
+
+.timeline-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+    color: var(--text);
+}
+
+.timeline-content span {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--accent);
+    margin-bottom: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.timeline-content p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text);
+    opacity: 0.85;
 }
 
 /* TECH MARQUEE */
@@ -731,7 +1035,6 @@ body {
 .tech:hover i {
     color: var(--accent);
     transform: scale(1.1);
-    filter: drop-shadow(0 0 15px var(--accent));
 }
 
 /* CTA */

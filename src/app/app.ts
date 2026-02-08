@@ -89,33 +89,44 @@ export class App implements AfterViewInit {
 
     /* HERO ANIMATION */
     gsap.from(safeSelect(".hero-title"), {
-      y: 80,
+      y: 100,
       opacity: 0,
-      duration: 1.2,
+      filter: "blur(20px)",
+      duration: 1.5,
+      ease: "power4.out",
       clearProps: "all"
     });
 
     gsap.from(safeSelect(".hero-sub"), {
-      y: 40,
+      y: 50,
       opacity: 0,
+      filter: "blur(10px)",
+      duration: 1.2,
       delay: .3,
+      ease: "power3.out",
       clearProps: "all"
     });
 
     gsap.from(safeSelect(".hero-desc"), {
-      y: 30,
+      y: 40,
       opacity: 0,
+      filter: "blur(10px)",
+      duration: 1.2,
       delay: .5,
+      ease: "power3.out",
       clearProps: "all"
     });
 
     const ctaLinks = safeSelect(".hero-cta a");
     if (ctaLinks.length > 0) {
       gsap.from(ctaLinks, {
-        y: 20,
+        y: 30,
         opacity: 0,
+        filter: "blur(5px)",
         stagger: .2,
+        duration: 1,
         delay: .7,
+        ease: "power3.out",
         clearProps: "all"
       });
     }
@@ -159,6 +170,22 @@ export class App implements AfterViewInit {
         scrub: true
       }
     });
+
+    /* TIMELINE ANIMATION */
+    const timelineItems = safeSelect(".timeline-item");
+    if (timelineItems.length > 0) {
+      gsap.from(timelineItems, {
+        scrollTrigger: {
+          trigger: ".timeline",
+          start: "top 80%"
+        },
+        y: 50,
+        opacity: 0,
+        duration: 1,
+        stagger: 0.3,
+        clearProps: "all"
+      });
+    }
 
     /* MARQUEE ANIMATION */
     const row1 = document.querySelector("#marquee-left .tech-track");
